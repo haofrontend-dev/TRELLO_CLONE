@@ -7,8 +7,16 @@ export default defineNuxtConfig({
             secret: process.env.AUTH_SECRET,
             origin: process.env.AUTH_ORIGIN,
         },
+        public: {
+            pixabayApiKey: process.env.PIXABAY_API_KEY,
+        },
     },
-    modules: ["@nuxt/ui", "nuxt-server-utils", "@sidebase/nuxt-auth"],
+    modules: [
+        "@nuxt/ui",
+        "nuxt-server-utils",
+        "@sidebase/nuxt-auth",
+        "@nuxt/image",
+    ],
     ui: {},
     nuxtServerUtils: {
         mongodbUri: process.env.MONGODB_URL,
@@ -19,5 +27,8 @@ export default defineNuxtConfig({
         provider: {
             type: "authjs",
         },
+    },
+    colorMode: {
+        classSuffix: "",
     },
 });

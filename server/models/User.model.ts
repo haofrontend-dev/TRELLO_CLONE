@@ -2,13 +2,13 @@ import { Schema, model, Document } from "mongoose";
 import bcrypt from "bcryptjs";
 
 import { generateHash } from "../utils/hash";
+import { boolean } from "zod";
 
 export interface UserDocument extends Document {
     name: string;
     email: string;
     password: string;
     stripeCustomerId?: string;
-
     comparePassword: (password: string) => Promise<boolean>;
 }
 
